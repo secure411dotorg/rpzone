@@ -17,8 +17,23 @@ apt-get dependencies, wget bind and patch, compile
 
 ```
 sudo apt-get update
-sudo apt-get install unzip libssl-dev build-essential
+sudo apt-get install unzip libssl-dev build-essential bind9 bind9utils
+```
 
+At this point we only have an older default Ubuntu version of BIND installed. 
+
+```named -V``` shows us the config, dirs, et al:
+
+```
+$ named -V
+BIND 9.8.1-P1 built with '--prefix=/usr' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--sysconfdir=/etc/bind' '--localstatedir=/var' '--enable-threads' '--enable-largefile' '--with-libtool' '--enable-shared' '--enable-static' '--with-openssl=/usr' '--with-gssapi=/usr' '--with-gnu-ld' '--with-geoip=/usr' '--enable-ipv6' 'CFLAGS=-fno-strict-aliasing -DDIG_SIGCHASE -O2' 'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro' 'CPPFLAGS=-D_FORTIFY_SOURCE=2'
+using OpenSSL version: OpenSSL 1.0.1 14 Mar 2012
+using libxml2 version: 2.7.8
+```
+
+Next we installed BIND 9.9.2-P1 and the RPZ2 patch:
+
+```
 wget ftp://ftp.isc.org/isc/bind9/9.9.2-P1/bind-9.9.2-P1.tar.gz
 
 tar zxf bind-9.9.2-P1.tar.gz
