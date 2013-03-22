@@ -50,15 +50,65 @@ patch -s -p0 -i rpz2+rl-9.9.2-P1.patch
 ./configure '--prefix=/usr' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--sysconfdir=/etc/bind' '--localstatedir=/var' '--enable-threads' '--enable-largefile' '--with-libtool' '--enable-shared' '--enable-static' '--with-openssl=/usr' '--with-gnu-ld' '--with-geoip=/usr' '--enable-ipv6' 'CFLAGS=-fno-strict-aliasing -DDIG_SIGCHASE -O2 -g' 'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro' 'CPPFLAGS=-D_FORTIFY_SOURCE=2'
 ```
 
+If the machine you are building on is low power, make can take a very long time:
+
+```
 make
 
 sudo make install
 ```
 
+Run named -V again to verify that the newer patched version is now active:
 
+```
+named -V
 
-FIXME: initial conf files for bind (I could copy from my existing RPZ master but want to be sure I use clean and correct initial conf files)
+BIND 9.9.2-rpz2+rl.072.23-P1 built with '--prefix=/usr' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--sysconfdir=/etc/bind' '--localstatedir=/var' '--enable-threads' '--enable-largefile' '--with-libtool' '--enable-shared' '--enable-static' '--with-openssl=/usr' '--with-gnu-ld' '--with-geoip=/usr' '--enable-ipv6' 'CFLAGS=-fno-strict-aliasing -DDIG_SIGCHASE -O2 -g' 'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro' 'CPPFLAGS=-D_FORTIFY_SOURCE=2'
+using OpenSSL version: OpenSSL 1.0.1 14 Mar 2012
+```
 
-FIXME: start and stop control (I have this working on my existing RPZ master with a modified /etc/init.d/bind9)
+The queryperf utility needs to be compiled:
 
-FIXME: logging configuration (I have logging working fine on my existing RPZ master - might need need some tips later if I have trouble getting it working on this new one)
+```
+cd contrib/queryperf
+sh configure
+make
+cd ../..
+```
+
+In order to run the rpz tests, changes to /etc/network/interfaces are needed:
+
+```
+cd bin/tests/system
+sudo ./ifconfig.sh up
+```
+
+Run the rpz tests:
+
+```
+~/bind-9.9.2-P1/bin/tests/system$ sh run.sh rpz
+
+S:rpz:Fri Mar 22 15:46:50 UTC 2013
+T:rpz:1:A
+A:System test rpz
+I:checking QNAME rewrites
+I:checking IP rewrites
+I:checking radix tree deletions
+I:checking NSDNAME rewrites
+I:checking NSIP rewrites
+I:checking walled garden NSIP rewrites
+I:checking policy overrides
+I:checking crashes
+I:checking performance with rpz
+I:checking performance without rpz
+I:1060 qps with rpz is 80% of 1321 qps without rpz
+I:exit status: 0
+R:PASS
+E:rpz:Fri Mar 22 15:47:25 UTC 2013
+```
+
+The above "performance" was on a t1.micro, the smallest Amazon instance size. 
+
+FIXME: initial conf files for bind
+
+FIXME: logging configuration 
