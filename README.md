@@ -31,9 +31,9 @@ patch -s -p0 -i rpz2+rl-9.9.2-P1.patch
 
 cd into the resulting dir
 
-sudo ./configure
+./configure
 
-sudo make
+make
 
 sudo make install
 ```
