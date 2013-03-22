@@ -53,31 +53,7 @@ make
 sudo make install
 ```
 
-I could not find a guide to creating the user for bind, so I did adduser bind, blank password and rm /home/bind, edited /etc/passwd to be similar to my working older RPZ instance:
 
-FIXME: user creation, chroot dirs set up
-/etc/passwd has a line like this:
-
-```
-bind:x:1001:1001::/var/cache/bind:/bin/false
-```
-
-The following I adapted from an older chroot walk through for bind on ubuntu, and this has been done on the instance:
-
-```
-mkdir -p /var/lib/named/etc/bind
-mkdir /var/lib/named/dev
-mkdir -p /var/lib/named/var/cache/bind
-mkdir -p /var/lib/named/var/run/bind/run
-
-ln -s /var/lib/named/etc/bind /etc/bind
-
-mknod /var/lib/named/dev/null c 1 3
-mknod /var/lib/named/dev/random c 1 8
-chmod 666 /var/lib/named/dev/null /var/lib/named/dev/random
-chown -R bind:bind /var/lib/named/var/*
-chown -R bind:bind /var/lib/named/etc/bind
-```
 
 FIXME: initial conf files for bind (I could copy from my existing RPZ master but want to be sure I use clean and correct initial conf files)
 
