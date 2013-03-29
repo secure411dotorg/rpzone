@@ -109,6 +109,8 @@ E:rpz:Fri Mar 22 15:47:25 UTC 2013
 
 The above "performance" was on a t1.micro, the smallest Amazon instance size. 
 
+FIXME: what ports need to be open for IXFR and nsupdate
+
 FIXME: initial conf files for bind
 
 FIXME: logging configuration 

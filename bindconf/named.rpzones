@@ -1,0 +1,51 @@
+// CONFIGME
+// YOUR-ZONE-OR-KEY-NAME-HERE must match the key name in named.creds file
+
+
+// Don't type IP addresses and CIDRS in this file
+// IP addresses and CIDRS go in the named.acl file
+// Just type the names of the groups from named.acl here
+
+// allow-query restrictions here are not for ordinary resolver clients
+// Only allow-query for yourself or special purposes as it allows 
+// directly examining zone contents
+
+// allow-transfer is for additional RPZ feature enabled resolvers 
+// of your own or parties you trust
+// that you want to allow to copy your zones, getting updates by IXFR
+
+// response-policy overrides the responses given next to each 
+// rpz line in the zones. GIVEN as the response-policy will use what is in the zone
+
+// The order you list the zones in here matters. 
+
+
+// RPZones I manage myself and I am the master for
+
+zone "alexa5000" {
+	type master;
+	file "/etc/bind/alexa5000.db";
+	response-policy { PASSTHRU; };
+	allow-query { superadmin; };
+	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
+	update-policy {
+	  grant ddns-key.YOUR-ZONE-OR-KEY-NAME-HERE zonesub ANY;
+	};
+    };
+
+
+zone "shdrop" {
+	type master;
+	file "/etc/bind/shdrop.db";
+	response-policy { NXDOMAIN; };
+	allow-query { superadmin; };
+	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
+	update-policy {
+	  grant ddns-key.YOUR-ZONE-OR-KEY-NAME-HERE zonesub ANY;
+	};
+    };
+
+// RPZones I buy or get free from others - they are the master, my server is a slave for these zones
+// and I get the updates by IXFR
+
+

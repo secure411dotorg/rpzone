@@ -1,0 +1,27 @@
+// CONFIGME 
+// You can name groups of CIDRs here, whatever helps you remember 
+// such as groups named by location or a particular customer
+// or purpose that you might want to add or remove as a group
+// or assign certain permissions to as a group
+// These acl group names can be used anywhere in the 
+// named options files
+
+// REMOVE 1.2.3.4/32 and replace with your own masters (IPs you get other peoples zones from)
+// and laves (IPs you allow to copy your zones)
+
+// Add your own IPs to client_networks (IPs you will test this RPZ server from)
+// and superadmin_networks (IPs you want to give more admin access to beyond making recursive requests)
+
+// Example showing multiple IPs in an acl group:
+// acl "foo" { 1.2.3.0/24; 1.2.3.4; 4.3.0.0/16 };
+
+acl "myresolvers" { 1.2.3.4/32; 4.3.2.1/32; };
+
+acl "mytrustedfriends;" { 1.2.3.4/32; };
+
+acl "ixfr_masters" { 1.2.3.4/32; };
+
+acl "ixfr_slaves" { 1.2.3.4/32; };
+
+acl "superadmin_networks" { 127.0.0.1; };
+

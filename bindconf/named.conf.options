@@ -1,0 +1,28 @@
+// Each file with an include statement here 
+// will have the same effect as if the file 
+// contents are in this file
+
+include "/etc/bind/named.acl";
+include "/etc/bind/named.creds";
+include "/etc/bind/named.rpzones";
+include "/etc/bind/named.logging";
+
+
+// allow-recursion is the place to list the names from named.acl
+// of the IP/CIDR groups you want to allow to get RPZ-protected answers
+// from this server
+
+options {
+	directory "/etc/bind";
+        allow-recursion { superadmin; myresolvers; mytrustedfriends; };
+        version "no thank you";
+        notify no;
+
+	// If there is a firewall between you and nameservers you want
+	// to talk to, you may need to fix the firewall to allow multiple
+	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+        listen-on port 53 { any; };
+	// listen-on-v6 { any; };
+};
+
