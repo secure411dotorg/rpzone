@@ -9,7 +9,7 @@
 source /opt/process-locking/process-locking-header.sh
 
 DEPENDENCIESDIR="/opt/rpz-dependencies"
-DELIVERABLESDIR="/opt/rpz-deliverables
+DELIVERABLESDIR="/opt/rpz-deliverables"
 
 cd ${DELIVERABLES}
 

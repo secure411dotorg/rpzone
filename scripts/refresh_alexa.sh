@@ -13,6 +13,8 @@ DELIVERABLESDIR="/opt/rpz-deliverables"
 
 head -n5000 ${DEPENDENCIESDIR}/alexa.domains|sort  > ${DEPENDENCIESDIR}/alexa_5000.domains
 
+touch ${DEPENDENCIESDIR}/alexa_rpz_new.flag
+
 rm /tmp/alexa.zip
 
 source /opt/process-locking/process-locking-footer.sh
