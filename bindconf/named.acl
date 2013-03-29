@@ -7,7 +7,7 @@
 // named options files
 
 // REMOVE 1.2.3.4/32 and replace with your own masters (IPs you get other peoples zones from)
-// and laves (IPs you allow to copy your zones)
+// and slaves (IPs you allow to copy your zones)
 
 // Add your own IPs to client_networks (IPs you will test this RPZ server from)
 // and superadmin_networks (IPs you want to give more admin access to beyond making recursive requests)
