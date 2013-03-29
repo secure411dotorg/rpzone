@@ -15,7 +15,7 @@ head -n5000 ${DEPENDENCIESDIR}/alexa.domains|sort  > ${DEPENDENCIESDIR}/alexa500
 
 cat ${DEPENDENCIESDIR}/alexa5000.domains|sed 's/$/\.rpz-nsdname/' > ${DEPENDENCIESDIR}/alexa5000.rpz-nsdname
 
-touch ${DEPENDENCIESDIR}/alexa_rpz_new.flag
+touch ${DEPENDENCIESDIR}/alexa5000_rpz_new.flag
 
 rm /tmp/alexa.zip
 
