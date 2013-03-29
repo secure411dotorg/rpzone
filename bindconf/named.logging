@@ -1,0 +1,15 @@
+//FIXME check with others on sane defaults for versions size and rotation
+
+logging {
+        channel xfer {
+                severity debug; file "/var/log/named/log/xfer.log" versions 3 size 10m;
+                print-category yes; print-time yes; print-severity yes;
+        };
+	channel rpzchannel { 
+		severity debug; file "/var/log/named/log/rpz.log" versions 3 size 10m;
+		print-category yes; print-time yes; print-severity yes; 
+	};
+        category "rpz" { "rpzchannel"; }; 
+        category "xfer-in" { "xfer"; }; 
+        category "xfer-out" { "xfer"; }; 
+};

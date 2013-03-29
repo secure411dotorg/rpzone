@@ -12,6 +12,10 @@ include "/etc/bind/named.logging";
 // of the IP/CIDR groups you want to allow to get RPZ-protected answers
 // from this server
 
+// response-policy overrides the responses given next to each
+// rpz line in the zones. GIVEN as the response-policy will use what is in the zone
+
+
 options {
 	directory "/etc/bind";
         allow-recursion { superadmin; myresolvers; mytrustedfriends; };
@@ -20,6 +24,10 @@ options {
 
 	qname-wait-recurse no;
 	break-dnssec yes;
+
+	response-policy { 
+	alexa5000 policy PASSTHRU;
+        };
 
 	// If there is a firewall between you and nameservers you want
 	// to talk to, you may need to fix the firewall to allow multiple

@@ -14,9 +14,6 @@
 // of your own or parties you trust
 // that you want to allow to copy your zones, getting updates by IXFR
 
-// response-policy overrides the responses given next to each 
-// rpz line in the zones. GIVEN as the response-policy will use what is in the zone
-
 // The order you list the zones in here matters. 
 
 
@@ -25,7 +22,6 @@
 zone "alexa5000" {
 	type master;
 	file "/etc/bind/alexa5000.db";
-	response-policy { PASSTHRU; };
 	allow-query { superadmin; };
 	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
 	update-policy {
@@ -37,7 +33,6 @@ zone "alexa5000" {
 zone "shdrop" {
 	type master;
 	file "/etc/bind/shdrop.db";
-	response-policy { NXDOMAIN; };
 	allow-query { superadmin; };
 	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
 	update-policy {
