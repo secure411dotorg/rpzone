@@ -11,7 +11,9 @@ DELIVERABLESDIR="/opt/rpz-deliverables"
 
 /usr/bin/unzip -p /tmp/alexa.zip|cut -d"," -f2 > ${DEPENDENCIESDIR}/alexa.domains
 
-head -n5000 ${DEPENDENCIESDIR}/alexa.domains|sort  > ${DEPENDENCIESDIR}/alexa_5000.domains
+head -n5000 ${DEPENDENCIESDIR}/alexa.domains|sort  > ${DEPENDENCIESDIR}/alexa5000.domains
+
+cat ${DEPENDENCIESDIR}/alexa5000.domains|sed 's/$/\.rpz-nsdname/' > ${DEPENDENCIESDIR}/alexa5000.rpz-nsdname
 
 touch ${DEPENDENCIESDIR}/alexa_rpz_new.flag
 

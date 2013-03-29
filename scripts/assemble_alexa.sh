@@ -22,7 +22,7 @@ if [ -f "${DEPENDENCIESDIR}/alexa_rpz_new.flag" ]; then
 	sed "s/SERIAL/$THEPOCH/g" ${DEPENDENCIESDIR}/rpzone.header > ${DELIVERABLESDIR}/alexa5000.db.tmp
 
 	# Append the rpz format files to the zone file.tmp with a POLICY appended to each line
-	cat ${DEPENDENCIESDIR}/alexa5000.rpz-nsdname ${DEPENDENCIESDIR}/alexa5000.rpz ${DEPENDENCIESDIR}/dnb.rpz |\
+	cat ${DEPENDENCIESDIR}/alexa5000.rpz-nsdname ${DEPENDENCIESDIR}/alexa5000.domains |\
 	sort -u|sed '/^$/d'|sed 's/$/ CNAME \./' >> ${DELIVERABLESDIR}/alexa5000.db.tmp
 
 	# Validate the syntax of the zone - FIXME error handling for result of validation
