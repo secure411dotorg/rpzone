@@ -17,7 +17,8 @@ include "/etc/bind/named.logging";
 
 
 options {
-	directory "/etc/bind";
+	//directory "/etc/bind";
+	directory "/var/cache/bind";
         allow-recursion { superadmin; myresolvers; mytrustedfriends; };
         version "no thank you";
         notify no;
@@ -26,15 +27,21 @@ options {
 	break-dnssec yes;
 
 	response-policy { 
-	alexa5000 policy PASSTHRU;
-        };
+		zone "alexa5000" policy PASSTHRU;
+        }
+		qname-wait-recurse no
+		break-dnssec yes;
+
 
 	// If there is a firewall between you and nameservers you want
 	// to talk to, you may need to fix the firewall to allow multiple
 	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
 
-	// NOTE: the listen-on option is also in named.conf.options
         listen-on port 53 { any; };
 	// listen-on-v6 { any; };
+
+	dnssec-validation auto;
+
+	auth-nxdomain no;    # conform to RFC1035
 };
 
