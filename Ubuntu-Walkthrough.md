@@ -114,3 +114,6 @@ Add these lines:
   /opt/rpz-deliverables/ rw,
 ```
 
+```sudo /etc/init.d/apparmor reload``
+
+```sudo mkdir /var/log/named```
