@@ -11,7 +11,7 @@ source /opt/process-locking/process-locking-header.sh
 DEPENDENCIESDIR="/opt/rpz-dependencies"
 DELIVERABLESDIR="/opt/rpz-deliverables"
 
-cd ${DELIVERABLES}
+cd ${DELIVERABLESDIR}
 
 THEPOCH=`date +%s`
 
@@ -23,16 +23,16 @@ if [ -f "${DEPENDENCIESDIR}/alexa_rpz_new.flag" ]; then
 
 	# Append the rpz format files to the zone file.tmp with a POLICY appended to each line
 	cat ${DEPENDENCIESDIR}/alexa5000.rpz-nsdname ${DEPENDENCIESDIR}/alexa5000.rpz ${DEPENDENCIESDIR}/dnb.rpz |\
-	sort -u|sed '/^$/d'|sed 's/$/ CNAME \./' >> ${DELIVERABLES}/alexa5000.db.tmp
+	sort -u|sed '/^$/d'|sed 's/$/ CNAME \./' >> ${DELIVERABLESDIR}/alexa5000.db.tmp
 
 	# Validate the syntax of the zone - FIXME error handling for result of validation
-	# /usr/sbin/named-checkconf -z ${DELIVERABLES}/alexa5000.db.tmp
+	# /usr/sbin/named-checkconf -z ${DELIVERABLESDIR}/alexa5000.db.tmp
 
 	# if valid - Replace zone file with zone file.tmp - else log error FIXME
-	cp ${DELIVERABLES}/alexa5000.db.tmp ${DELIVERABLES}/alexa5000.db
+	cp ${DELIVERABLESDIR}/alexa5000.db.tmp ${DELIVERABLESDIR}/alexa5000.db
  
 	# Run rndc reload zone
-	/usr/sbin/rndc reload alexa5000
+	sudo /usr/sbin/rndc reload alexa5000
 
 	sudo rm ${DEPENDENCIESDIR}/alexa_rpz_new.flag
 else
