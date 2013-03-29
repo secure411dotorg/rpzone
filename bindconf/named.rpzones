@@ -21,7 +21,7 @@
 
 zone "alexa5000" {
 	type master;
-	file "/etc/bind/alexa5000.db";
+	file "/opt/rpz-deliverables/alexa5000.db";
 	allow-query { superadmin; };
 	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
 	update-policy {
@@ -32,7 +32,7 @@ zone "alexa5000" {
 
 zone "shdrop" {
 	type master;
-	file "/etc/bind/shdrop.db";
+	file "/opt/rpz-deliverables/shdrop.db";
 	allow-query { superadmin; };
 	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
 	update-policy {

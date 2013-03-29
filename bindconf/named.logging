@@ -2,11 +2,11 @@
 
 logging {
         channel xfer {
-                severity debug; file "log/xfer.log" versions 3 size 10m;
+                severity debug; file "/var/log/named/xfer.log" versions 3 size 10m;
                 print-category yes; print-time yes; print-severity yes;
         };
 	channel rpzchannel { 
-		severity debug; file "log/rpz.log" versions 3 size 10m;
+		severity debug; file "/var/log/named/rpz.log" versions 3 size 10m;
 		print-category yes; print-time yes; print-severity yes; 
 	};
         category "rpz" { "rpzchannel"; }; 

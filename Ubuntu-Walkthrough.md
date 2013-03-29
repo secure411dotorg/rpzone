@@ -104,3 +104,13 @@ The above "performance" was on a t1.micro, the smallest Amazon instance size.
 
 Each line of named.conf.options has been commented out because no views were required for this install and the options{} clause is located in the named.conf.local file.
 
+```sudo vi /etc/apparmor.d/usr.sbin.named```
+
+Add these lines:
+
+```
+  # RPZones
+  /opt/rpz-deliverables/** rw,
+  /opt/rpz-deliverables/ rw,
+```
+
