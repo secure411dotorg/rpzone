@@ -18,10 +18,14 @@ options {
         version "no thank you";
         notify no;
 
+	qname-wait-recurse no;
+	break-dnssec yes;
+
 	// If there is a firewall between you and nameservers you want
 	// to talk to, you may need to fix the firewall to allow multiple
 	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
 
+	// NOTE: the listen-on option is also in named.conf.options
         listen-on port 53 { any; };
 	// listen-on-v6 { any; };
 };
