@@ -5,7 +5,24 @@ The purpose of this git repository is to encourage the use of Response Policy Zo
 
 Helper scripts to assist in maintaining white and block zones will be included in this repository.
 
-The following steps have already been completed on the instance, which requires no extra configuration. For reasons of security, we detail how the instance was created in the file named Ubuntu-Walkthrough.md.
+For reasons of security, we detail how the instance was created in the file named Ubuntu-Walkthrough.md.
+
+***
+###First time config
+
+Request the AMI to be shared with your AWS account by sending your AWS account number to (contact)
+
+Start the instance up on your own AWS account which will use your own ssh key and security group.
+
+ssh into the instance
+
+Generate an rndc.key
+
+FIXME explain how and why: Generate ddns keys
+
+grep -l CONFIGME /etc/bind/*named* will list the files you need to edit
+
+To restart BIND: ```/etc/init.d/bind9 restart``` 
 
 ***
 ###NOTES

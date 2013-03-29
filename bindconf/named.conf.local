@@ -1,9 +1,14 @@
+// CONFIGME each time you want to add or remove an RPZone
+
 // Each file with an include statement here 
 // will have the same effect as if the file 
 // contents are in this file
 
+// Uncomment the include for named.creds after you install a proper secret
+// in the named.creds file
+
 include "/etc/bind/named.acl";
-include "/etc/bind/named.creds";
+//include "/etc/bind/named.creds";
 include "/etc/bind/named.rpzones";
 include "/etc/bind/named.logging";
 
@@ -22,9 +27,6 @@ options {
         allow-recursion { superadmin; myresolvers; mytrustedfriends; };
         version "no thank you";
         notify no;
-
-	qname-wait-recurse no;
-	break-dnssec yes;
 
 	response-policy { 
 		zone "alexa5000" policy PASSTHRU;

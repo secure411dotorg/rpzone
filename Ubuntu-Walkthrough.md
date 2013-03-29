@@ -100,3 +100,7 @@ E:rpz:Fri Mar 22 15:47:25 UTC 2013
 
 The above "performance" was on a t1.micro, the smallest Amazon instance size. 
 
+###DEVIATIONS FROM DEFAULT INSTALL:
+
+Each line of named.conf.options has been commented out because no views were required for this install and the options{} clause is located in the named.conf.local file.
+
