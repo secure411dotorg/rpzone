@@ -10,10 +10,10 @@ DELIVERABLESDIR="/opt/rpz-deliverables"
 /usr/bin/wget -O /tmp/edrop.txt http://www.spamhaus.org/drop/edrop.txt
 /usr/bin/wget -O /tmp/drop.txt http://www.spamhaus.org/drop/drop.txt
 
-grep -v "^;" /tmp/drop.txt /tmp/edrop.txt|cut -d" " -f1|sed 's/\//\./' |\
+cat /tmp/drop.txt /tmp/edrop.txt|grep -v "^;"|cut -d" " -f1|sed 's/\//\./' |\
 awk -F"." '{print $5"."$4"."$3"."$2"."$1".rpz-ip"}' > ${DEPENDENCIESDIR}/shdrop.rpz-ip
 
-grep -v "^;" /tmp/drop.txt /tmp/edrop.txt|cut -d" " -f1|sed 's/\//\./' |\
+cat /tmp/drop.txt /tmp/edrop.txt|grep -v "^;"|cut -d" " -f1|sed 's/\//\./' |\
 awk -F"." '{print $5"."$4"."$3"."$2"."$1".rpz-nsip"}' > ${DEPENDENCIESDIR}/shdrop.rpz-nsip
 
 touch ${DEPENDENCIESDIR}/shdrop_rpz_new.flag

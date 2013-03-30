@@ -25,6 +25,16 @@ grep -l CONFIGME /etc/bind/*named* will list the files you need to edit
 To restart BIND: ```/etc/init.d/bind9 restart``` 
 
 ***
+###Example white and block lists
+
+Data is refreshed by a script on crontab
+
+New data is detected by polling on crontab for a new data flag file.
+
+The zone is recreated and reloaded using a script:
+
+/opt/rpzone/scripts$ ./assemble_cidr_zone.sh shdrop
+***
 ###NOTES
 
 BIND is very picky about syntax. Always check the log file after altering a config file, restarting BIND, or using rndc reconfig. rndc reconfig will not show an error message for syntax issues with a config file. The log will show the error. Look at running processes such as by using ```ps auxfwww1``` to see if named is in the process list.
