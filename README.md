@@ -5,7 +5,7 @@ The purpose of this git repository is to encourage the use of Response Policy Zo
 
 [Helper scripts](https://github.com/secure411dotorg/rpzone/tree/master/scripts) to assist in maintaining white and block zones are included in this repository. A further aim of this project is to facilitate folks providing free or commercial RPZones to each other. 
 
-Resources about the Response Policy Zones feature of BIND are provided [here](https://github.com/secure411dotorg/rpzone/wiki).
+Resources about the Response Policy Zones feature of BIND are provided [here](https://github.com/secure411dotorg/rpzone/wiki/RPZ-Resources-Wiki-on-GitHub).
 
 For reasons of security, we detail how the instance was created in the file named [Ubuntu-Walkthrough.md](https://github.com/secure411dotorg/rpzone/blob/master/Ubuntu-Walkthrough.md).
 
