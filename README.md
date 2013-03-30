@@ -30,7 +30,7 @@ To restart BIND: ```sudo /etc/init.d/bind9 start```
 
 *If BIND does not start, check /var/log/syslog to find out what you need to fix.*
 
-Send test queries
+Send test queries FIXME show examples here
 
 ***
 ###Example white and block lists
@@ -51,10 +51,10 @@ The zone is recreated and reloaded using a [script](https://github.com/secure411
 
 Small, slowly changing lists such as Alexa and D.R.O.P. may be suitable for full zone replacement as shown above. 
 For huge zones, high update frequency and urgent blocking data sources you can lower the propagation delay and elminated zone reloading 
-by using the nsupdate command. See [Minimize Propagation Delay on High Update Frequency Blocklists]
+by using the nsupdate command. See [Minimize Propagation Delay for High Update Frequency Blocklists](https://github.com/secure411dotorg/rpzone/wiki/Minimize-Propagation-Delay-for-High-Update-Frequency-Blocklists)
 
 
-See also:
+**See also:**
 
 * How to Add a Local Zone
 * Add Zones Maintained by Other People
