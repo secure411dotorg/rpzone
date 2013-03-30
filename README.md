@@ -3,9 +3,11 @@ AWS AMI for easy experimenting with RPZ2
 
 The purpose of this git repository is to encourage the use of Response Policy Zones feature of BIND by making it easy to start up your own instance on your own AWS account and immediately test and use RPZ2 with an already-working config.
 
-Helper scripts to assist in maintaining white and block zones will be included in this repository.
+[Helper scripts](https://github.com/secure411dotorg/rpzone/tree/master/scripts) to assist in maintaining white and block zones are included in this repository. A further aim of this project is to facilitate folks providing free or commercial RPZones to each other. 
 
-For reasons of security, we detail how the instance was created in the file named Ubuntu-Walkthrough.md.
+Resources about the Response Policy Zones feature of BIND are provided [here](https://github.com/secure411dotorg/rpzone/wiki).
+
+For reasons of security, we detail how the instance was created in the file named [Ubuntu-Walkthrough.md](https://github.com/secure411dotorg/rpzone/blob/master/Ubuntu-Walkthrough.md).
 
 ***
 ###First time config
