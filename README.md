@@ -37,7 +37,7 @@ FIXME explain how and why: Generate ddns keys
 
 A working config with [D.R.O.P.](http://www.spamhaus.org/drop/) as blocklist and the top 5000 sites from Alexa as the [whitelist](https://github.com/secure411dotorg/rpzone/wiki/Free-Whitelist-Response-Policy-Zones) is provided.
 
-*Outline of the list updating process:*
+**Outline of the list updating process:**
 
 Data is refreshed by a [script](https://github.com/secure411dotorg/rpzone/blob/master/scripts/assemble_cidr_zone.sh) on a [crontab](https://github.com/secure411dotorg/rpzone/blob/master/ubuntu.crontab)
 
@@ -49,6 +49,12 @@ The zone is recreated and reloaded using a [script](https://github.com/secure411
 
 /opt/rpzone/scripts$ ./assemble_cidr_zone.sh shdrop
 
+See also:
+
+* How to Add a Local Zone
+* Add Zones Maintained by Other People
+* Share your Zones
+
 ***
 ###NOTES
 
@@ -58,6 +64,3 @@ BIND is very picky about syntax. Always check the log file after altering a conf
 
 FIXME: what ports need to be open for IXFR and nsupdate
 
-FIXME: initial conf files for bind
-
-FIXME: logging configuration 
