@@ -56,9 +56,9 @@ by using the nsupdate command. See [Minimize Propagation Delay for High Update F
 
 **See also:**
 
-* How to Add a Local Zone
-* Add Zones Maintained by Other People
-* Share your Zones
+* [How to Add a Local Zone](https://github.com/secure411dotorg/rpzone/wiki/How-to-Add-a-Local-Zone)
+* [Add Zones Maintained by Other People](https://github.com/secure411dotorg/rpzone/wiki/Add-Zones-Maintained-by-Other-People)
+* [Share your Zones](https://github.com/secure411dotorg/rpzone/wiki/Share-your-Zones)
 
 
 ***
