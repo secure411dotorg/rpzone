@@ -20,17 +20,17 @@ Start the instance up on your own AWS account which will use your own ssh key an
 
 ssh into the instance
 
-Generate an rndc.key
+```sudo /etc/init.d/bind9 stop``` *stop BIND in case it is running*
+
+```sudo /usr/sbin/rndc-confgen -a``` *generate a new rndc.key unique to your instance*
 
 grep -l CONFIGME /etc/bind/*named* will list the files you need to edit
 
-To restart BIND: ```/etc/init.d/bind9 restart``` 
+To restart BIND: ```sudo /etc/init.d/bind9 start``` 
 
 *If BIND does not start, check /var/log/syslog to find out what you need to fix.*
 
 Send test queries
-
-FIXME explain how and why: Generate ddns keys
 
 ***
 ###Example white and block lists
@@ -49,11 +49,17 @@ The zone is recreated and reloaded using a [script](https://github.com/secure411
 
 /opt/rpzone/scripts$ ./assemble_cidr_zone.sh shdrop
 
+Small, slowly changing lists such as Alexa and D.R.O.P. may be suitable for full zone replacement as shown above. 
+For huge zones, high update frequency and urgent blocking data sources you can lower the propagation delay and elminated zone reloading 
+by using the nsupdate command. See [Minimize Propagation Delay on High Update Frequency Blocklists]
+
+
 See also:
 
 * How to Add a Local Zone
 * Add Zones Maintained by Other People
 * Share your Zones
+
 
 ***
 ###NOTES
