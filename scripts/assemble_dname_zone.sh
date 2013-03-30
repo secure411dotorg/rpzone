@@ -11,7 +11,7 @@ source /opt/process-locking/process-locking-header.sh
 if [ -z "${1}"  ];then
 	echo "No zone specified - Nothing done"
 	echo " " 
-	echo "USAGE: ./assemble_zone.sh ZONENAME"
+	echo "USAGE: ./assemble_dname_zone.sh ZONENAME"
 else
 
 #FIXME most of the rest of the file needs indenting another level
