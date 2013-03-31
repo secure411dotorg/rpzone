@@ -1,10 +1,10 @@
 // Keys here are active when this file has an include statement in named.conf
 // The systems from which nsupdate will be run need a matching keyfile
 
-// The named.rpzones file is where this ddns-key.YOUR-ZONE-OR-KEY-NAME-HERE gets 
+// The named.rpzones file is where this ddns-key gets 
 // associated with particular RPZones
 
-key "ddns-key.YOUR-ZONE-OR-KEY-NAME-HERE" {
+key "ddns-key" {
 	algorithm hmac-md5;
 	secret "PASTE-YOUR-KEY-SECRET-HERE";
 };

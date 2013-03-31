@@ -25,7 +25,7 @@ zone "alexa5000" {
 	allow-query { superadmin; };
 	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
 	update-policy {
-	  grant ddns-key.YOUR-ZONE-OR-KEY-NAME-HERE zonesub ANY;
+	  grant ddns-key zonesub ANY;
 	};
     };
 
@@ -36,7 +36,7 @@ zone "shdrop" {
 	allow-query { superadmin; };
 	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
 	update-policy {
-	  grant ddns-key.YOUR-ZONE-OR-KEY-NAME-HERE zonesub ANY;
+	  grant ddns-key zonesub ANY;
 	};
     };
 

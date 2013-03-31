@@ -4,8 +4,8 @@
 #
 INSTRUCTION="${1}"
 THEHOST="${2}"
-ZONENAME="${3}
-ZONESERVER="127.0.0.1"
+ZONENAME="${3}"
+ZONESERVER=""
 QCDIR="/opt/rpz-quality"
 
 ZONETYPE=`echo "${THEHOST}"|rev|cut -d. -f2|rev`
@@ -54,14 +54,13 @@ x=1
 while [ $x -le 1 ]
 do
 TSTAMP=`date +%s`
-echo "server ${ZONESERVER}"
+#echo "server ${ZONESERVER}"
 echo "zone ${ZONENAME}"
-echo "update ${INSTRUCTION} ${THEHOST} 60 A 127.0.0.2"
+echo "update ${INSTRUCTION} ${THEHOST}.${ZONENAME} 60 A 127.0.0.2"
 echo "show"
 echo "send"
 echo "answer"
   x=$(( $x + 1 ))
-echo "${TSTAMP}|update ${INSTRUCTION} ${THEHOST} 60 A 127.0.0.2" >> ${QCDIR}/audit_trail_manual.csv
-done |/usr/bin/nsupdate -k /home/ubuntu/ddns-key.sponsored
-
+echo "${TSTAMP}|update ${INSTRUCTION} ${THEHOST}.${ZONENAME} 60 A 127.0.0.2" >> ${QCDIR}/audit_trail_manual.csv
+done |/usr/bin/nsupdate -k /etc/bind/ddns.key
 
