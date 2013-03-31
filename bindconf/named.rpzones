@@ -24,9 +24,7 @@ zone "alexa5000" {
 	file "/opt/rpz-deliverables/alexa5000.db";
 	allow-query { superadmin; };
 	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
-	update-policy {
-	  grant ddns-key zonesub ANY;
-	};
+	allow-update{localhost;};
     };
 
 
@@ -35,9 +33,7 @@ zone "shdrop" {
 	file "/opt/rpz-deliverables/shdrop.db";
 	allow-query { superadmin; };
 	allow-transfer { superadmin; myresolvers; mytrustedfriends; }; 
-	update-policy {
-	  grant ddns-key zonesub ANY;
-	};
+	allow-update{localhost;};
     };
 
 // RPZones I buy or get free from others - they are the master, my server is a slave for these zones

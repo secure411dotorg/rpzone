@@ -8,7 +8,6 @@
 // in the named.creds file
 
 include "/etc/bind/named.acl";
-include "/etc/bind/named.creds";
 include "/etc/bind/named.rpzones";
 include "/etc/bind/named.logging";
 
