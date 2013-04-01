@@ -23,6 +23,5 @@
 #
 # REFRESH SOURCE DATA FOR ZONES
 30 0 */7 * * /opt/rpzone/scripts/refresh_alexa.sh
-#
-# FIXME http GET DROP, diff, update zone
+30 * * * * /opt/rpzone/scripts/refresh_drop.sh
  
