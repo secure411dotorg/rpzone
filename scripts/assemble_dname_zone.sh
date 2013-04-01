@@ -32,7 +32,8 @@ if [ -f "${DEPENDENCIESDIR}/${ZONENAME}_rpz_new.flag" ]; then
 	sed "s/ZONENAME/$ZONENAME/g;s/SERIAL/$THEPOCH/g" ${DEPENDENCIESDIR}/rpzone.header > ${DELIVERABLESDIR}/${ZONENAME}.db.tmp
 
 	# Append the rpz format files to the zone file.tmp with a POLICY appended to each line
-	cat ${DEPENDENCIESDIR}/${ZONENAME}.rpz-nsdname ${DEPENDENCIESDIR}/${ZONENAME}.domains |\
+	# FIXME provide option to change policy from CNAME . to A 127.0.0.2 for dnsbl style responses
+	cat ${DEPENDENCIESDIR}/${ZONENAME}.rpz-nsdname ${DEPENDENCIESDIR}/${ZONENAME}.domains ${DEPENDENCIESDIR}/${ZONENAME}.wildcarddomains|\
 	sort -u|sed '/^$/d'|sed 's/$/ CNAME \./' >> ${DELIVERABLESDIR}/${ZONENAME}.db.tmp
 
 	echo "zone ${ZONENAME} { type master; file \"${DELIVERABLESDIR}/${ZONENAME}.db.tmp\"; };" > ${DEPENDENCIESDIR}/${ZONENAME}.validator
