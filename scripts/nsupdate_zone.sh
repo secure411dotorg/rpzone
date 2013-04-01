@@ -5,7 +5,7 @@
 INSTRUCTION="${1}"
 THEHOST="${2}"
 ZONENAME="${3}"
-ZONESERVER=""
+ZONESERVER="localhost"
 QCDIR="/opt/rpz-quality"
 
 ZONETYPE=`echo "${THEHOST}"|rev|cut -d. -f2|rev`
@@ -62,5 +62,5 @@ echo "send"
 echo "answer"
   x=$(( $x + 1 ))
 echo "${TSTAMP}|update ${INSTRUCTION} ${THEHOST}.${ZONENAME} 60 A 127.0.0.2" >> ${QCDIR}/audit_trail_manual.csv
-done |/usr/bin/nsupdate -k /etc/bind/ddns.key
+done |sudo /usr/bin/nsupdate -l
 
