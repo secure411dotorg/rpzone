@@ -49,9 +49,8 @@ New data is detected by polling on crontab for a new data flag file.
 The zone is recreated and reloaded using a [script](https://github.com/secure411dotorg/rpzone/blob/master/scripts/assemble_cidr_zone.sh):
 
 /opt/rpzone/scripts$ ./assemble_cidr_zone.sh shdrop
-
-Small, slowly changing lists such as Alexa and D.R.O.P. may be suitable for full zone replacement as shown above. 
-For huge zones, high update frequency and urgent blocking data sources you can lower the propagation delay and elminated zone reloading 
+ 
+You can lower the propagation delay and elminated zone reloading 
 by using the nsupdate command. See [Minimize Propagation Delay for High Update Frequency Blocklists](https://github.com/secure411dotorg/rpzone/wiki/Minimize-Propagation-Delay-for-High-Update-Frequency-Blocklists)
 
 
