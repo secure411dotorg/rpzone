@@ -1,6 +1,4 @@
 // CONFIGME
-// YOUR-ZONE-OR-KEY-NAME-HERE must match the key name in named.creds file
-
 
 // Don't type IP addresses and CIDRS in this file
 // IP addresses and CIDRS go in the named.acl file
@@ -39,4 +37,18 @@ zone "shdrop" {
 // RPZones I buy or get free from others - they are the master, my server is a slave for these zones
 // and I get the updates by IXFR
 
+// The toprules zone is a free zone from https://service.DissectCyber.com
+// The criteria for the zone is to include the top NNN rules seen in current hits to
+// Dissect Cyber's subscription based services
+// Request IXFR zone access by emailing your RPZ server IP to data@dissectcyber.com
 
+// Uncomment the zone definition here and in the named.local.conf response-policy section 
+
+// This serves as an example for slave zones
+
+// zone "toprules" {
+//      type slave;
+//      file "/opt/rpz-deliverables/toprules.db";
+//      allow-query { superadmin; };
+//	masters { 54.224.18.150; };
+//    };
