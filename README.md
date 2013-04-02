@@ -30,7 +30,8 @@ To restart BIND: ```sudo /etc/init.d/bind9 start```
 
 *If BIND does not start, check /var/log/syslog to find out what you need to fix.*
 
-Send test queries FIXME show examples here
+
+[Send test queries](https://github.com/secure411dotorg/rpzone/wiki/Test-Queries) 
 
 ***
 ###Example white and block lists
