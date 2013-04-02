@@ -27,6 +27,7 @@ options {
 	response-policy { 
 		zone "alexa5000" policy PASSTHRU;
 		zone "shdrop" policy GIVEN;
+		// zone "toprules" policy GIVEN;
         }
 		qname-wait-recurse no
 		break-dnssec yes;
