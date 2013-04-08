@@ -68,5 +68,5 @@ BIND is very picky about syntax. Always check the log file after altering a conf
 
 ***
 
-FIXME: what ports need to be open for IXFR and nsupdate
+Port 53 TCP needs to be open for IXFR. allow-query must include slaves because they will send an SOA query.
 

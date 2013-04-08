@@ -22,7 +22,7 @@ options {
 	directory "/var/cache/bind";
         allow-recursion { superadmin; myresolvers; mytrustedfriends; };
         version "no thank you";
-        notify no;
+        notify yes;
 
 	response-policy { 
 		zone "alexa5000" policy PASSTHRU;

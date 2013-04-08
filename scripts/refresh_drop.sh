@@ -30,7 +30,7 @@ awk -F"." '{print $5"."$4"."$3"."$2"."$1".rpz-nsip"}' > ${DEPENDENCIESDIR}/shdro
 # nsupdate the zone with added domains
 while read RCIDR;do
 	/opt/rpzone/scripts/nsupdate_zone.sh add ${RCIDR}.rpz-ip shdrop
-	/opt/rpzone/scripts/nsupdate_zone.sh add *.${RCIDR}.rpz-nsip shdrop
+	/opt/rpzone/scripts/nsupdate_zone.sh add ${RCIDR}.rpz-nsip shdrop
 done < ${DEPENDENCIESDIR}/shdrop.rCIDR.add
 rm ${DEPENDENCIESDIR}/shdrop.rCIDR.add
 # nsupdate the zone with removed domains
