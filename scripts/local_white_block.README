@@ -1,0 +1,6 @@
+# Do not manually edit localwhite.db nor localblock.db
+#
+# Use nsupdate_white.sh
+# Use nsupdate_block.sh
+#
+#
