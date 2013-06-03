@@ -40,17 +40,13 @@ A working config with [D.R.O.P.](http://www.spamhaus.org/drop/) as blocklist and
 
 **Outline of the list updating process:**
 
-Data is refreshed by a [script](https://github.com/secure411dotorg/rpzone/blob/master/scripts/assemble_cidr_zone.sh) on a [crontab](https://github.com/secure411dotorg/rpzone/blob/master/ubuntu.crontab)
+Data is refreshed by a [script](https://github.com/secure411dotorg/rpzone/blob/master/scripts/refresh_drop.sh) on a [crontab](https://github.com/secure411dotorg/rpzone/blob/master/ubuntu.crontab)
 
 /opt/rpzone/scripts$ ./refresh_drop.sh
 
 New data is detected by polling on crontab for a new data flag file.
-
-The zone is recreated and reloaded using a [script](https://github.com/secure411dotorg/rpzone/blob/master/scripts/assemble_cidr_zone.sh):
-
-/opt/rpzone/scripts$ ./assemble_cidr_zone.sh shdrop
  
-You can lower the propagation delay and elminated zone reloading 
+You can lower the propagation delay and elminated zone reloading for your own zones 
 by using the nsupdate command. See [Minimize Propagation Delay for High Update Frequency Blocklists](https://github.com/secure411dotorg/rpzone/wiki/Minimize-Propagation-Delay-for-High-Update-Frequency-Blocklists)
 
 
