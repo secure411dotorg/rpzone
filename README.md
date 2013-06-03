@@ -40,7 +40,7 @@ A working config with [D.R.O.P.](http://www.spamhaus.org/drop/) as blocklist and
 
 **Outline of the list updating process:**
 
-Data is refreshed by a [script](https://github.com/secure411dotorg/rpzone/blob/master/scripts/refresh_drop.sh) on a [crontab](https://github.com/secure411dotorg/rpzone/blob/master/ubuntu.crontab)
+Data is refreshed by a [script](https://github.com/secure411dotorg/rpzone/blob/master/scripts/refresh_drop.sh) on a [crontab](https://github.com/secure411dotorg/rpzone/blob/master/scripts/ubuntu.crontab)
 
 /opt/rpzone/scripts$ ./refresh_drop.sh
 
