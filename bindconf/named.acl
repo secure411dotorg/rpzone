@@ -19,7 +19,7 @@ acl "myresolvers" { 1.2.3.4/32; 4.3.2.1/32; };
 
 acl "mytrustedfriends" { 1.2.3.4/32; };
 
-acl "ixfr_masters" { 1.2.3.4/32; };
+masters "ixfr_masters" { 1.2.3.4/32; };
 
 acl "ixfr_slaves" { 1.2.3.4/32; };
 
