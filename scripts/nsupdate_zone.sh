@@ -1,6 +1,25 @@
 #!/bin/bash
 # PURPOSE: Accept an instruction, host and zonename
 # and instruct an RPZ bind server to add or delete a rule
+# 
+# NAME: nsupdate_zone.sh (part of rpzone helper scripts)
+# Copyright (C) 2012 April Lorenzen
+#
+# Paper mail contact: April Lorenzen, PO Box 293, Jamestown RI 02835
+# Electronic contact: https://github.com/secure411dotorg/rpzone/issues
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 INSTRUCTION="${1}"
 THEHOST="${2}"
