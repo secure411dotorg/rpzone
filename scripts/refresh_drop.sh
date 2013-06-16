@@ -1,6 +1,7 @@
 #!/bin/bash
 # PURPOSE: Update the dependencies with
 # current SH Do Not Route or Peer (DROP) as a blocklist
+# 
 # NAME: refresh_drop.sh (part of rpzone helper scripts)
 # Copyright (C) 2012 April Lorenzen
 #
