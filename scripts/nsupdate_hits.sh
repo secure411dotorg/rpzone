@@ -47,12 +47,12 @@ while read HIT RULE;do
     while [ $x -le 1 ];do
         TSTAMP=`date +%s`
         echo "zone ${ZONENAME}"
-        echo "update ${INSTRUCTION} ${THEHOST}.${ZONENAME} 60 CNAME ${HIT}.${HITZONE}"
+        echo "update ${INSTRUCTION} ${THEHOST}.${ZONENAME} ${TSTAMP} CNAME ${HIT}.${HITZONE}"
         echo "show"
         echo "send"
         echo "answer"
           x=$(( $x + 1 ))
-          echo "${TSTAMP}|update ${INSTRUCTION} ${THEHOST}.${ZONENAME} 60 CNAME ${HIT}.${HITZONE}" >> ${QCDIR}/audit_trail_hits.csv
+          echo "${TSTAMP}|update ${INSTRUCTION} ${THEHOST}.${ZONENAME} ${TSTAMP} CNAME ${HIT}.${HITZONE}" >> ${QCDIR}/audit_trail_hits.csv
     done |sudo /usr/bin/nsupdate -l
 
 done
