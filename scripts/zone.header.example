@@ -1,0 +1,13 @@
+$ORIGIN .
+$TTL 120    ; 2 minutes
+YOURZONENAMEHERE      IN SOA  . hostmaster.ns.YOURZONENAMEHERE. (
+                1 ; serial
+                3600       ; refresh (1 hour)
+                1200       ; retry (20 minutes)
+                604800     ; expire (1 week)
+                60         ; minimum (1 minute)
+                )
+            NS  ns.YOURZONENAMEHERE.
+ns.YOURZONENAMEHERE.    A   127.0.0.1
+test-point      A   127.0.0.2
+
