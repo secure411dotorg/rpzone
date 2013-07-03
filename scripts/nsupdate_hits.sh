@@ -34,26 +34,27 @@ TODAY=`date +%d-%b-%Y`
 
 QCDIR="/etc/bind/rpz-quality"
 INSTRUCTION="add"
-ZONENAME="hits"
+ZONENAME="hits-YOURCOMPANY"
 ZONESERVER="localhost"
 
-grep -F "${TODAY}" /var/log/named/rpz.log |awk '{print $12,$NF}'|sort -u|grep -v alexa5000|grep -v white |\
-while read HIT RULE;do
-
-    THEHOST=`echo "${RULE}"|rev|cut -d"." -f2-10|rev`
-    HITZONE=`echo "${RULE}"|rev|cut -d"." -f1|rev`
+TODAY=`date +%d-%b-%Y`
+grep -F "${TODAY}" /var/log/named/rpz.log |grep -vF "PASSTHRU"|grep -vF ": disabled "|awk '{print $12,$NF}'|sort -u |\
+while read QNAME RULE;do
+    RULEHIT=`echo "${RULE}"|rev|cut -d"." -f2-10|rev`
+    ZONEHIT=`echo "${RULE}"|rev|cut -d"." -f1|rev`
+    TTL="86400"
 
     x=1
     while [ $x -le 1 ];do
-        TSTAMP=`date +%s`
+        UNIXTIME=`date +%s`
         echo "zone ${ZONENAME}"
-        echo "update ${INSTRUCTION} ${THEHOST}.${ZONENAME} ${TSTAMP} CNAME ${HIT}.${HITZONE}"
+        echo "update ${INSTRUCTION} ${UNIXTIME}.${QNAME}.${ZONENAME} ${TTL} CNAME ${RULEHIT}.${ZONEHIT}"
         echo "show"
         echo "send"
         echo "answer"
           x=$(( $x + 1 ))
-          echo "${TSTAMP}|update ${INSTRUCTION} ${THEHOST}.${ZONENAME} ${TSTAMP} CNAME ${HIT}.${HITZONE}" >> ${QCDIR}/audit_trail_hits.csv
+          echo "${UNIXTIME}|update ${INSTRUCTION} ${UNIXTIME}.${QNAME}.${ZONENAME} ${TTL} CNAME ${RULEHIT}.${ZONEHIT}" >> ${QCDIR}/audit_trail_hits.csv
     done |sudo /usr/bin/nsupdate -l
-
 done
+
 
