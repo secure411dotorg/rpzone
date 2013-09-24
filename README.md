@@ -1,4 +1,4 @@
-AWS AMI for easy experimenting with RPZ2
+AWS AMI for easy experimenting with DNS Firewalls
 ======
 
 The purpose of this git repository is to encourage the use of Response Policy Zones feature of BIND by making it easy to start up your own instance on your own AWS account and 
