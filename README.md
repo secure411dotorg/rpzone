@@ -11,8 +11,10 @@ Resources about the Response Policy Zones feature of BIND are provided [here](ht
 
 For reasons of security, we detail how the instance was created in the file named [Ubuntu-Walkthrough.md](https://github.com/secure411dotorg/rpzone/blob/master/Ubuntu-Walkthrough.md).
 
+If you don't want to use DNS Firewall features and are just trying out Response Rate Limiting, don't do the configuration below. Just go [here](https://github.com/secure411dotorg/rpzone/wiki/Response-Rate-Limiting).
+
 ***
-###First time config
+###First time config for DNS Firewall use:
 
 Request the AMI to be shared with your AWS account by sending your AWS account number and identifying yourself to @secure411dotorg
 
