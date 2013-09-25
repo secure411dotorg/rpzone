@@ -18,6 +18,8 @@ If you don't want to use DNS Firewall features and are just trying out Response 
 
 Request the AMI to be shared with your AWS account by sending your AWS account number and identifying yourself to @secure411dotorg
 
+Or search community AMIs for the term rpzone
+
 Start the instance up on your own AWS account which will use your own ssh key and security group.
 
 ssh into the instance
