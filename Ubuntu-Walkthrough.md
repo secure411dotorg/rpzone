@@ -28,9 +28,13 @@ Ubuntu apt-get installed BIND 9.9.5-3 and now we need the RPZ patch for 9.9.5:
 ```
 wget http://ftp.isc.org/isc/bind9/9.9.5/bind-9.9.5.tar.gz
 
+tar zxf bind-9.9.5.tar.gz
+
+cd bind-9.9.5
+
 wget http://ss.vix.su/%7Evjs/rpz2+rl-9.9.5.patch
 
-patch -s -p0 -i rpz2+rl-9.9.2-P1.patch
+patch -s -p0 -i rpz2+rl-9.9.5.patch 
 
 ```
 
