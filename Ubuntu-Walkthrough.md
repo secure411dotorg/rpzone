@@ -75,8 +75,9 @@ Run named -V again to verify that the newer patched version is now active:
 ```
 named -V
 
-BIND 9.9.2-rpz2+rl.072.23-P1 built with '--prefix=/usr' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--sysconfdir=/etc/bind' '--localstatedir=/var' '--enable-threads' '--enable-largefile' '--with-libtool' '--enable-shared' '--enable-static' '--with-openssl=/usr' '--with-gnu-ld' '--with-geoip=/usr' '--enable-ipv6' 'CFLAGS=-fno-strict-aliasing -DDIG_SIGCHASE -O2 -g' 'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro' 'CPPFLAGS=-D_FORTIFY_SOURCE=2'
-using OpenSSL version: OpenSSL 1.0.1 14 Mar 2012
+BIND 9.9.5-rpz2+rl.14038.05 (Extended Support Version) <id:f9b8a50e> built by make with '--prefix=/usr' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--sysconfdir=/etc/bind' '--localstatedir=/var' '--enable-threads' '--enable-largefile' '--with-libtool' '--enable-shared' '--enable-static' '--enable-rrl' '--with-gssapi' '--with-pkcs11' '--enable-newstats' '--enable-fixed-rrset' '--with-atf' '--with-libxml2' '--with-openssl=/usr' '--with-gnu-ld' '--with-geoip=/usr' '--enable-ipv6' 'CFLAGS=-fno-strict-aliasing -DDIG_SIGCHASE -O2 -g' 'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro' 'CPPFLAGS=-D_FORTIFY_SOURCE=2'
+compiled by GCC 4.8.2
+using OpenSSL version: OpenSSL 1.0.1f 6 Jan 2014
 ```
 
 The queryperf utility needs to be compiled:
