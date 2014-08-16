@@ -101,7 +101,7 @@ Run the rpz tests:
 ```
 ~/bind-9.9.2-P1/bin/tests/system$ sh run.sh rpz
 
-S:rpz:Fri Mar 22 15:46:50 UTC 2013
+S:rpz:Sat Aug 16 23:08:25 UTC 2014
 T:rpz:1:A
 A:System test rpz
 I:checking QNAME rewrites
@@ -112,15 +112,17 @@ I:checking NSIP rewrites
 I:checking walled garden NSIP rewrites
 I:checking policy overrides
 I:checking crashes
-I:checking performance with rpz
-I:checking performance without rpz
-I:1060 qps with rpz is 80% of 1321 qps without rpz
+I:checking performance with RPZ
+I:checking performance without RPZ
+I:13752 qps with RPZ is 85% of 16267 qps without RPZ
+I:checking that ttl values are not zeroed when qtype is '*'
 I:exit status: 0
 R:PASS
-E:rpz:Fri Mar 22 15:47:25 UTC 2013
+E:rpz:Sat Aug 16 23:08:39 UTC 2014
+
 ```
 
-The above "performance" was on a t1.micro, the smallest Amazon instance size. 
+The above "performance" was on a t2.micro, the smallest Amazon current generation instance size. 
 
 ###DEVIATIONS FROM DEFAULT INSTALL:
 
