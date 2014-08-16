@@ -2,7 +2,7 @@
 How the AWS instance was created
 ---
 
-AMI: ubuntu/images/ebs/ubuntu-precise-12.04-i386-server-20130124 (ami-3bec7952)
+AMI: ubuntu-trusty-14.04-amd64-server-20140607.1 (ami-864d84ee)
 
 apt-get dependencies, wget bind and patch, compile
 
@@ -17,21 +17,16 @@ At this point we only have an older default Ubuntu version of BIND installed.
 
 ```
 $ named -V
-BIND 9.8.1-P1 built with '--prefix=/usr' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--sysconfdir=/etc/bind' '--localstatedir=/var' '--enable-threads' '--enable-largefile' '--with-libtool' '--enable-shared' '--enable-static' '--with-openssl=/usr' '--with-gssapi=/usr' '--with-gnu-ld' '--with-geoip=/usr' '--enable-ipv6' 'CFLAGS=-fno-strict-aliasing -DDIG_SIGCHASE -O2' 'LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro' 'CPPFLAGS=-D_FORTIFY_SOURCE=2'
-using OpenSSL version: OpenSSL 1.0.1 14 Mar 2012
-using libxml2 version: 2.7.8
+BIND 9.9.5-3-Ubuntu (Extended Support Version) <id:f9b8a50e> built by make with '--prefix=/usr' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--sysconfdir=/etc/bind' '--localstatedir=/var' '--enable-threads' '--enable-largefile' '--with-libtool' '--enable-shared' '--enable-static' '--with-openssl=/usr' '--with-gssapi=/usr' '--with-gnu-ld' '--with-geoip=/usr' '--with-atf=no' '--enable-ipv6' '--enable-rrl' '--enable-filter-aaaa' 'CFLAGS=-fno-strict-aliasing -DDIG_SIGCHASE -O2'
+compiled by GCC 4.8.2
+using OpenSSL version: OpenSSL 1.0.1f 6 Jan 2014
+using libxml2 version: 2.9.1
 ```
 
-Next we installed BIND 9.9.2-P1 and the RPZ2 patch:
+Ubuntu apt-get installed BIND 9.9.5-3 and now we need the RPZ patch for 9.9.5:
 
 ```
-wget ftp://ftp.isc.org/isc/bind9/9.9.2-P1/bind-9.9.2-P1.tar.gz
-
-tar zxf bind-9.9.2-P1.tar.gz
-
-cd bind-9.9.2-P1
-
-wget http://ss.vix.su/~vjs/rpz2+rl-9.9.2-P1.patch
+wget http://ss.vix.su/%7Evjs/rpz2+rl-9.9.5.patch
 
 patch -s -p0 -i rpz2+rl-9.9.2-P1.patch
 
