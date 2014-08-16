@@ -61,6 +61,15 @@ make
 sudo make install
 ```
 
+On an AWS ec2 t2.micro, for make:
+
+```
+real	4m59.081s
+user	4m32.221s
+sys	0m22.056s
+```
+
+
 Run named -V again to verify that the newer patched version is now active:
 
 ```
