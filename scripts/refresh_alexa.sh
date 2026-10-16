@@ -26,9 +26,9 @@ source /opt/process-locking/process-locking-header.sh
 DEPENDENCIESDIR="/opt/rpz-dependencies"
 DELIVERABLESDIR="/opt/rpz-deliverables"
 
-/usr/bin/wget -O /tmp/alexa.zip http://s3.amazonaws.com/alexa-static/top-1m.csv.zip
+/usr/bin/wget -O /tmp/top1m.csv https://netapi.com/netapi_top1mln.csv
 
-/usr/bin/unzip -p /tmp/alexa.zip|cut -d"," -f2 > ${DEPENDENCIESDIR}/alexa.domains
+tail -n +2 /tmp/top1m.csv|cut -d"," -f2 > ${DEPENDENCIESDIR}/alexa.domains
 
 # Preserve existing copy of our source data to facilitate diffing
 mv ${DEPENDENCIESDIR}/alexa5000.domains ${DEPENDENCIESDIR}/alexa5000.domains.prev
@@ -60,7 +60,7 @@ rm ${DEPENDENCIESDIR}/alexa5000.domains.del
 
 touch ${DEPENDENCIESDIR}/alexa5000_rpz_new.flag
 
-rm /tmp/alexa.zip
+rm /tmp/top1m.csv
 
 source /opt/process-locking/process-locking-footer.sh
 
